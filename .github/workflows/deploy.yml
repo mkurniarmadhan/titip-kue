@@ -1,0 +1,28 @@
+name: Deploy on Self-Hosted Runner
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # Pakai runner kamu sendiri, bukan github-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install composer dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Run migrations
+        run: php artisan migrate --force
+
+      - name: Cache config, routes, views
+        run: |
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+
+      - name: Restart nginx
+        run: sudo systemctl restart nginx
