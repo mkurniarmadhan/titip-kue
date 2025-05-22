@@ -47,8 +47,16 @@ class User extends Authenticatable
         ];
     }
 
-    public function outlet() { return $this->belongsTo(Outlet::class); }
-public function shipments() { return $this->hasMany(Shipment::class, 'admin_id'); }
-public function salesReports() { return $this->hasMany(SalesReport::class, 'staff_id'); }
-
+    public function outlet()
+    {
+        return $this->belongsTo(Outlet::class);
+    }
+    public function shipments()
+    {
+        return $this->hasMany(Shipment::class, 'admin_id');
+    }
+    public function salesReports()
+    {
+        return $this->hasMany(SalesReport::class, 'staff_id');
+    }
 }

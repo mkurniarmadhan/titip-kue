@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('sales_reports', function (Blueprint $table) {
             $table->id();
-             $table->foreignId('shipment_id')->constrained();
-    $table->foreignId('staff_id')->constrained('users');
-    $table->date('report_date');
-    $table->decimal('total_payment', 12, 2);
+            $table->foreignId('shipment_id')->constrained();
+            $table->foreignId('staff_id')->constrained('users');
+            $table->date('report_date');
+            $table->decimal('total_payment', 12, 2);
             $table->timestamps();
         });
     }

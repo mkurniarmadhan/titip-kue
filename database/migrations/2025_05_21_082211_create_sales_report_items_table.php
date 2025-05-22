@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('sales_report_items', function (Blueprint $table) {
             $table->id();
-             $table->foreignId('sales_report_id')->constrained();
-    $table->foreignId('product_id')->constrained();
-    $table->integer('quantity_sold');
-    $table->integer('quantity_remaining');
+            $table->foreignId('sales_report_id')->constrained();
+            $table->foreignId('product_id')->constrained();
+            $table->integer('quantity_sold');
+            $table->integer('quantity_remaining');
             $table->timestamps();
         });
     }

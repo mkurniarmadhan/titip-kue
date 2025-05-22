@@ -3,18 +3,18 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>outlet </h1>
+                <h1>Produk </h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">outlet</a></div>
-                    <div class="breadcrumb-item">daftar outlet</div>
+                    <div class="breadcrumb-item"><a href="#">Produk</a></div>
+                    <div class="breadcrumb-item">daftar produk</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">outlet</h2>
+                <h2 class="section-title">Produk</h2>
                 <p class="section-lead">
-                    Daftar outlet
+                    Daftar produk
                 </p>
 
                 <div class="row">
@@ -23,8 +23,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="section-title">
-                                    
-                                    <a href="{{ route('outlet.create') }}" class="btn btn-primary mb-3">Tambah outlet</a>
+
+                                    <a href="{{ route('product.create') }}" class="btn btn-primary mb-3">Tambah
+                                        Produk</a>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table-sm table">
@@ -32,21 +33,25 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Nama</th>
-                                                <th scope="col">Alamat</th>
+                                                <th scope="col">Harga</th>
                                                 <th scope="col">Opsi</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="table-product">
 
 
-                                            @forelse ($outlets as $outlet)
-                                                <tr>
-                                                    <th scope="row">{{ $outlet->id }}</th>
-                                                    <td>{{ $outlet->name }}</td>
-                                                    <td>{{ $outlet->address }}</td>
+                                            @forelse ($products as $product)
+                                                <tr id="index_{{ $product->id }}">
+                                                    <th scope="row">{{ $product->id }}</th>
+                                                    <td>{{ $product->name }}</td>
+                                                    <td>{{ $product->price }}</td>
                                                     <td>
-                                                      <a href="{{ route('outlet.edit', $outlet) }}"
-                                                            class="btn btn-sm btn-success">LIhat</a>            </td>
+                                                        <a href="{{ route('product.edit', $product) }}"
+                                                            class="btn btn-sm btn-success">LIhat</a>
+                                                 
+
+
+                                                    </td>
                                                 </tr>
                                             @empty <tr>
 
@@ -66,15 +71,14 @@
     </div>
 
 
+
+
+
+    </div>
+
+
     @push('scripts')
-        
-
-    <script>
-
-        $("#btn-edit").on('click', function(){
-
-            alert('oke')
-        })
-    </script>
+     
+    
     @endpush
 </x-appLayout>

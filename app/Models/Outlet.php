@@ -10,9 +10,20 @@ class Outlet extends Model
     /** @use HasFactory<\Database\Factories\OutletFactory> */
     use HasFactory;
 
-    
-// App\Models\Outlet.php
-public function users() { return $this->hasMany(User::class); }
-public function shipments() { return $this->hasMany(Shipment::class); }
 
+    protected $fillable = [
+        'name',
+        'address',
+    ];
+
+
+    // App\Models\Outlet.php
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+    public function shipments()
+    {
+        return $this->hasMany(Shipment::class);
+    }
 }

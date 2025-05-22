@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->id();
-              $table->foreignId('admin_id')->constrained('users');
-    $table->foreignId('outlet_id')->constrained();
-    $table->date('shipment_date');
+
+            $table->foreignId('outlet_id')->constrained();
+            $table->date('shipment_date');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

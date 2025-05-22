@@ -10,20 +10,25 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
-    {
+  /**
+   * Seed the application's database.
+   */
+  public function run(): void
+  {
 
 
-          User::create(['name' => 'Admin 1', 'email' => 'admin@mail.com', 'password' => bcrypt('password'), 'role' => 'admin']);
-      
+    User::create([
+      'name' => 'Admin 1',
+      'email' => 'admin@gmail.com',
+      'password' => bcrypt('password'),
+      'role' => 'admin'
+    ]);
 
-          $this->call([
 
-            ProductSeeder::class
-          ]);
-    
-    }
+    $this->call([
+
+      ProductSeeder::class,
+      OutletSeeder::class
+    ]);
+  }
 }

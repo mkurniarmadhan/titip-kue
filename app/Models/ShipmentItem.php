@@ -10,9 +10,21 @@ class ShipmentItem extends Model
     /** @use HasFactory<\Database\Factories\ShipmentItemFactory> */
     use HasFactory;
 
-    
-// App\Models\ShipmentItem.php
-public function shipment() { return $this->belongsTo(Shipment::class); }
-public function product() { return $this->belongsTo(Product::class); }
 
+
+    protected $fillable = [
+        'shipment_id',
+        'product_id',
+        'quantity'
+    ];
+
+    // App\Models\ShipmentItem.php
+    public function shipment()
+    {
+        return $this->belongsTo(Shipment::class);
+    }
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }
