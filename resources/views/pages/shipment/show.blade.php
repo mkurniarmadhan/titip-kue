@@ -16,7 +16,7 @@
                             <div class="col-lg-12">
                                 <div class="invoice-title">
                                     <h2>Invoice</h2>
-                                    <div class="invoice-number">Kode Penitipan {{ $shipment->id }}</div>
+                                    <div class="invoice-number">Kode Penitipan {{ $shipment->kode }}</div>
                                 </div>
                                 <hr>
                                 <div class="row">
@@ -60,7 +60,7 @@
                                         </tr>
 
                                         @foreach ($shipment->items as $item)
-                                        
+
                                             <tr>
                                                 <td>1</td>
                                                 <td>{{$item->product->name}}</td>

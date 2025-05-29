@@ -23,6 +23,11 @@
                     </i> <span>Data Outlet</span>
                 </a>
             </li>
+            <li class="{{ Route::is('kurir.index') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('kurir.index') }}"><i class="fas fa-pencil-ruler">
+                    </i> <span>Data Kurir</span>
+                </a>
+            </li>
             <li class="{{ Route::is('create-shipment') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('create-shipment') }}"><i class="fas fa-pencil-ruler">
                     </i> <span>Penitipan Baru</span>

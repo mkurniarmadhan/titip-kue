@@ -47,6 +47,15 @@ class User extends Authenticatable
         ];
     }
 
+    public function scopeKurir($query)
+    {
+        return $query->where('role', 'kurir'); // atau sesuaikan dengan kolom kamu
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
     public function outlet()
     {
         return $this->belongsTo(Outlet::class);

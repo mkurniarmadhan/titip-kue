@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KurirController;
 use App\Http\Controllers\Laporan\LaporanController;
 use App\Http\Controllers\Outlet\OutletController;
 use App\Http\Controllers\Product\ProductController;
@@ -22,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('outlet', OutletController::class);
     Route::resource('laporan', LaporanController::class);
     Route::resource('shipment', ShipmentController::class);
+    Route::resource('kurir', KurirController::class);
     Route::get('create-shipment', [ShipmentController::class, 'createShipment'])->name('create-shipment');
 });
 

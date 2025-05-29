@@ -11,7 +11,6 @@ class SalesReport extends Model
     use HasFactory;
 
 
-    // App\Models\SalesReport.php
     public function staff()
     {
         return $this->belongsTo(User::class, 'staff_id');

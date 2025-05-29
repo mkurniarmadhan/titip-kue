@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->id();
-
+            $table->string('kode', 4)->unique();
             $table->foreignId('outlet_id')->constrained();
             $table->date('shipment_date');
             $table->string('status')->default('pending');
